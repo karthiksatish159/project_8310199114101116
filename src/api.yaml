@@ -48,3 +48,40 @@ paths:
       responses:
         "200":
           description: OK
+  /api/v3/app/events/:
+    post:
+      tags:
+        - Event-Service
+      summary: Upload File with Fields
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                name:
+                  type: string
+                tagline:
+                  type: string
+                schedule:
+                  type: string
+                  format: date-time
+                description:
+                  type: string
+                moderator:
+                  type: string
+                category:
+                  type: string
+                sub_category:
+                  type: string
+                rigor_rank:
+                  type: number
+                image:
+                  type: "file"
+      responses:
+        200:
+          description: Successful response
+      
