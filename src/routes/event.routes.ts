@@ -1,5 +1,10 @@
 import { Router } from "express";
 import { Fetch } from "../controller/fetch.controller";
+import multer from 'multer';
+import { Add } from "../controller/add.controller";
+import { validationData,addEvent} from "../service/validation.service";
+const upload=multer();
 const router=Router();
 router.get('/events',Fetch.prototype.fetchEvents);
+router.post('/events',addEvent,validationData,upload.single('image'),Add.prototype.addEvent);
 export=router;

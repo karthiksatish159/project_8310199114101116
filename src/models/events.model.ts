@@ -8,12 +8,7 @@ const eventSchema=new Schema(
         tagline:String,
         schedule:Date,
         description:String,
-        images:
-        [
-            {
-                type:String
-            }
-        ],
+        images:String,
         moderator:String,
         category:String,
         sub_category:String,
@@ -25,4 +20,4 @@ const eventSchema=new Schema(
             }
         ]
     });
-    export =mongoose.model('evetns',eventSchema);
+    export =mongoose.model('events',eventSchema);
