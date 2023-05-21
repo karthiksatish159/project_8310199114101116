@@ -1,0 +1,50 @@
+openapi: 3.0.0
+info:
+  title: Your API
+  version: 1.0.0
+paths:
+  /api/v3/app/events?:
+    get:
+      tags:
+        - Event-Service
+      summary: Get events by type and page limit (with ID)
+      operationId: getEventsById
+      parameters:
+        - name: id
+          in: query
+          description: Type parameter (ID)
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+
+  /api/v3/app/events:
+    get:
+      tags:
+        - Event-Service
+      summary: Get events by type and page limit
+      operationId: getEventsByTypeAndPageLimit
+      parameters:
+        - name: type
+          in: query
+          description: Type parameter
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Page number parameter
+          required: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: Limit parameter (records per page)
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
