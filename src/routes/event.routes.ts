@@ -6,5 +6,5 @@ import { validationData,addEvent} from "../service/validation.service";
 const upload=multer();
 const router=Router();
 router.get('/events',Fetch.prototype.fetchEvents);
-router.post('/events',addEvent,validationData,upload.single('image'),Add.prototype.addEvent);
+router.post('/events',upload.single('image'),addEvent,validationData,Add.prototype.addEvent);
 export=router;

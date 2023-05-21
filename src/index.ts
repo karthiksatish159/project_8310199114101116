@@ -1,10 +1,10 @@
 require('dotenv').config();
-import express,{Express,Request,Response} from "express";
+import express,{Express,NextFunction,Request,Response} from "express";
 import { MongooseConnection } from "./config/db.setup";
 const app:Express=express();
 const port:number=3500||Number(process.env.PORT);
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({extended:false}));
 /** MongoDB connection setup*/
 const dbConnect=new MongooseConnection("db");
 dbConnect.connect().then(()=>{console.log('database connected')}).catch((err)=>{console.log(err)});
