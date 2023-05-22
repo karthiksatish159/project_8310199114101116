@@ -11,11 +11,11 @@ export const validationData=(req:Request,res:Response,next:NextFunction)=>
     };
 export const addEvent=
                     [
-                        body('type').matches(/^[a-zA-Z\s]+$/).withMessage("please provide valid values with in lphabetic characters"),
-                        body('name').matches(/^[a-zA-Z\s]+$/).withMessage("please provide valid values with in lphabetic characters"),
-                        body('tagline').matches(/^[a-zA-Z\s]+$/).withMessage("please provide valid values with in lphabetic characters"),
+                        body('type').matches(/^[a-zA-Z\s]+$/).withMessage("please provide valid values with in alphabetic characters"),
+                        body('name').matches(/^[a-zA-Z\s]+$/).withMessage("please provide valid values with in alphabetic characters"),
+                        body('tagline').matches(/^[a-zA-Z\s]+$/).withMessage("please provide valid values with in alphabetic characters"),
                         body('schedule').isISO8601(),
-                        body('description').matches(/^[a-zA-Z\s]+$/).withMessage("please provide valid values with in lphabetic characters"),
+                        body('description').matches(/^[a-zA-Z\s]+$/).withMessage("please provide valid values with in alphabetic characters"),
                         body('image').custom((value,{req}):boolean=>
                         {
                         
@@ -26,8 +26,8 @@ export const addEvent=
                             const allowedFileTypes = ['image/jpeg', 'image/png']
                             return (allowedFileTypes.includes(req.file.mimetype));
                         }).withMessage('invalid type'),
-                        body('moderator').matches(/^[a-zA-Z\s]+$/).withMessage("please provide valid values with in lphabetic characters"),
-                        body('category').matches(/^[a-zA-Z\s]+$/).withMessage("please provide valid values with in lphabetic characters"),
-                        body('sub_category').matches(/^[a-zA-Z\s]+$/).withMessage("please provide valid values with in lphabetic characters"),
+                        body('moderator').matches(/^[a-zA-Z\s]+$/).withMessage("please provide valid values with in alphabetic characters"),
+                        body('category').matches(/^[a-zA-Z\s]+$/).withMessage("please provide valid values with in alphabetic characters"),
+                        body('sub_category').matches(/^[a-zA-Z\s]+$/).withMessage("please provide valid values with in alphabetic characters"),
                         body('rigor_rank').isNumeric()
                     ]
