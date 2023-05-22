@@ -6,9 +6,9 @@ export class Add
     {
         try 
         {
-           const ids=await eventsModel.find().count();
+           const last_entry=await eventsModel.find().sort({id:-1}).limit(1);
            const newEvent=await eventsModel.create(
-                {id:ids+1,
+                {id:last_entry[0]["id"]+1,
                  type:req.body.type,
                  name:req.body.name,
                  tagline:req.body.tagline,
@@ -21,7 +21,7 @@ export class Add
                  rigor_rank:req.body.rigor_rank,
                 });
             await newEvent.save();
-            res.json({id:ids+1});
+            res.json({id:last_entry[0]["id"]+1});
         } catch (error) 
         {
             console.log(error)

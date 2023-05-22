@@ -81,6 +81,9 @@ paths:
                   type: number
                 image:
                   type: "file"
+      responses:
+        200:
+          description: Successful response     
   /api/v3/app/events/{id}:
     put:
       tags:
@@ -124,4 +127,19 @@ paths:
       responses:
         200:
           description: Successful response
+  /api/v3/app/events/{id}/:
+    delete:
+      tags:
+        - Event-Service
+      parameters:
+        - name: id
+          in: path
+          description: id paramter
+          required: true
+          schema:
+            type: number
+      responses:
+        200:
+          description: Successful response
+      
       
